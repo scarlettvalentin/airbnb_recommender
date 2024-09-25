@@ -34,6 +34,7 @@ I use the `surprise` library to create the recommender system. The baseline mode
 # Evaluation
 I evaluated the models using RMSE (Root Mean Squared Error). The final model has sn RMSE of 0.17. 
 <img src="images/actual_vs_predicted_ratings.png" style="height:300px">
+
 A few things are revealed through the scatterplot above of actual ratings versus predicted ratings. First, **the model does not predict any negative sentiments**. In fact, it seems the majority of the predictions fall between 0.7 and 1.0. This could be due to the lack of negative sentiments in the training data. Second, **the model appears to be inaccurate frequently when the actual rating is 0.0**. This is a neutral sentiment. Perhaps the model is having trouble interpreting a neutral sentiment and is classifying it as positive instead. Lastly, **the model appears to be accurate mostly between 0.5 and 1.0**. The points on the scatterplot are the most dende in this appear and supports the RMSE of 0.17.
 
 # Conclusion
