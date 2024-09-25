@@ -38,14 +38,23 @@ I evaluated the models using RMSE (Root Mean Squared Error). The final model has
 A few things are revealed through the scatterplot above of actual ratings versus predicted ratings. First, **the model does not predict any negative sentiments**. In fact, it seems the majority of the predictions fall between 0.7 and 1.0. This could be due to the lack of negative sentiments in the training data. Second, **the model appears to be inaccurate frequently when the actual rating is 0.0**. This is a neutral sentiment. Perhaps the model is having trouble interpreting a neutral sentiment and is classifying it as positive instead. Lastly, **the model appears to be accurate mostly between 0.5 and 1.0**. The points on the scatterplot are the most dende in this appear and supports the RMSE of 0.17.
 
 # Conclusion
+I created a **collaborative filtering model** to recommend 3 personalized Asheville, North Carolina Airbnb listings. The recommender had the following specifications:
+- SVD model
+- n_factors=20
+- n_epochs=10
+- reg_all=0.1
+- lr_all=0.01
+
+This model was created by downloading [two datasets from Airbnb](https://insideairbnb.com/get-the-data/): a dataset of unique listings and a dataset of unique reviews. The users' review comments were transformed to compound scores on a scale of -1 to 1 using the VADER sentiment analysis. The model was then evaluated with an **RMSE (Root Squared Mean Error) of 0.17**. 
+
 ### Limitations
-1. **New users do not have a baseline** on listing preferences, as they have not left any reviews.
-2. The **reviews are overwhelmingly positive**. Therefore, it is difficult to determine what a user would dislike. 
+1. **New users do not have a baseline** on listing preferences, as they have not left any reviews. I did not want to have them rate Airbnb listings that they have not yet rented. This would provide very skewed results, as users may not be taking price into consideration if they have not actually rented the Airbnb. Additionally, listings can appear very differently online than they do in person. Lastly, there is no way to rate an experience that hasn't happened. A hybrid model would have to be considered to recommend popular Airbnbs to a user with no reviews. Additionally, a user who has rented Airbnbs before but has not left any reviews can be recommended similar listings.
+2. The **reviews are overwhelmingly positive**. Therefore, it is difficult to determine what a user would dislike. It seems like users are more likely to leave a review if they have a positive experience with an Aribnb rental. That is a positive thing for Airbnb hosts, as a negative review can be detrimental to one's business. However, additional consideration must be taken to further tune the recommender system with this in mind.
 
 ### Next Steps
 1. **Expand recommender system**: Initially, this recommender system should be sampled in a few more selected cities to test the efficacy and usefulness of the feature. It should then be expanded to include all cities in one recommender system.
-2. **Incorporate additional factors of the listing into the recommendations**
-3. **Cold Start Problem:** New users will not have any recommendations. Create a hybrid approach using content-based filtering to recommend 3 Airbnb listings to new users that do not have any review data. 
+2. **Incorporate additional factors of the listing into the recommendations**: Users should be able to select certain filters on their profile for Airbnb listing specifications. For example, price can be a major factor in selecting a listing. By selecting a cut off price, users will not be recommended listings outside of their budget. Some users may only want to rent full homes, therefore those users will not be recommended listings that rent out a room. 
+3. **Cold Start Problem:** New users will not have any recommendations. Create a hybrid approach using content-based filtering to recommend 3 Airbnb listings to new users that do not have any review data but have previous activity renting Airnb listing. Additionallly, users who have left no reviews and have no previous activities shoudl be recommended 3 popular Airbnb listings.
 
 
 # For More Information
