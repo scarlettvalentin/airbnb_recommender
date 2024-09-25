@@ -4,7 +4,7 @@
 Author: [Scarlett Valentin](https://www.linkedin.com/in/scarlett-valentin/)
 
 # Overview
-
+The purpose of this project is to create a **collborative filtering recommender system** to recommend 3 Asheville, North Carolina Airbnb listings. This recommender system will help users find Airbnb listings that they will most likely enjoy based on the preferences of similar users, thus creating a more pleasure experience searching for listings. I used [two datasets from Airbnb](https://insideairbnb.com/get-the-data/), one of unique listings and one of unque reviews. I conducted a sentiment analysis using VADER to convert comment reviews to compound scores ranging from -1 to 1. I then created a final SVD model using `surprise` to recommend listings with an RMSE of 0.17. 
 
 # Business Understanding
 With an overabundance of information at our fingertips, decision-making can be quite overwhelming - especially when you are planning a vacation. Recommender systems help consumers find products tailored to their unique taste. In this project, **I will build a recommender system for Airbnb listings in Asheville, North Carolina**. 
